@@ -1,0 +1,23 @@
+SELECT COUNT(*) FROM film
+WHERE length>(SELECT AVG(length) FROM film);
+--
+SELECT COUNT(*) FROM film
+WHERE rental_rate=(SELECT rental_rate FROM film ORDER BY rental_rate DESC LIMIT 1);
+--
+SELECT * FROM film
+WHERE rental_rate=
+(SELECT MAX(rental_rate) FROM film)
+OR rental_rate=
+(SELECT MIN(rental_rate) FROM film);
+--
+SELECT list.customer_id,C.first_name,C.last_name,list.total_shopping
+FROM customer C
+RIGHT JOIN 
+(SELECT customer_id,COUNT(*) AS total_shopping FROM payment
+GROUP BY customer_id) AS list
+ON C.customer_id=list.customer_id
+ORDER BY list.total_shopping DESC;
+--
+
+
+
