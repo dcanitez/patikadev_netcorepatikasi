@@ -1,0 +1,14 @@
+SELECT C.city,U.country
+FROM city C
+LEFT JOIN country U
+ON C.country_id=U.country_id;
+--
+SELECT P.payment_id,C.first_name,C.last_name
+FROM customer C
+RIGHT JOIN payment P
+ON C.customer_id=P.customer_id;
+--
+SELECT R.rental_id,C.first_name,C.last_name
+FROM customer C
+FULL JOIN rental R
+ON C.customer_id=R.customer_id;
