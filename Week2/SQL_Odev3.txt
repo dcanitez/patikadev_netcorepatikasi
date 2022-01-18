@@ -5,7 +5,7 @@ SELECT country FROM country
 WHERE country LIKE '______%n';
 --
 SELECT title FROM film
-WHERE title ILIKE 'T%';
+WHERE title ILIKE '%T%';
 --
 SELECT * FROM film
 WHERE title LIKE 'C%'
